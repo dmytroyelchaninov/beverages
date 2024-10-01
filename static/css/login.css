@@ -1,0 +1,142 @@
+.login-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  background-color: #f4f4f4;
+  padding: 40px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.login-container h1 {
+  margin-bottom: 20px;
+  color: #000;
+}
+.login-container form .form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+.login-container form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333333;
+}
+.login-container form .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.login-container form .form-group input:focus {
+  border-color: #000;
+  outline: none;
+}
+.login-container form .btn {
+  background-color: #000;
+  color: #f4f4f4;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 100%;
+  margin-top: 10px;
+}
+.login-container form .btn:hover {
+  background-color: rgb(218.5, 218.5, 218.5);
+}
+.login-container form .btn i {
+  margin-right: 8px;
+}
+.login-container .divider {
+  margin: 20px 0;
+  position: relative;
+  text-align: center;
+  color: #888888;
+}
+.login-container .divider span {
+  background-color: #f4f4f4;
+  padding: 0 10px;
+  position: relative;
+  z-index: 1;
+}
+.login-container .divider:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #dddddd;
+  z-index: 0;
+}
+.login-container .social-login {
+  display: flex;
+  flex-direction: column;
+}
+.login-container .social-login .btn-social {
+  background-color: #dddddd;
+  color: #333333;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid #dddddd;
+  background-color: #f4f4f4;
+  color: #333333;
+}
+.login-container .social-login .btn-social:hover {
+  background-color: rgb(218.5, 218.5, 218.5);
+}
+.login-container .social-login .btn-social i {
+  margin-right: 8px;
+}
+.login-container .social-login .btn-social:hover {
+  background-color: #eaeaea;
+}
+.login-container .social-login .btn-social i {
+  font-size: 18px;
+}
+.login-container .additional-links {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555555;
+}
+.login-container .additional-links a {
+  color: #000;
+  text-decoration: none;
+}
+.login-container .additional-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px;
+  }
+  .btn, .btn-social {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}

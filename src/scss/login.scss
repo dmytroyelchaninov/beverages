@@ -1,0 +1,163 @@
+$color-background: #f4f4f4;
+$color-hover: #909090;
+$color-font: #f4f4f4;
+$color-main: #000;
+// login.scss
+
+// Variables
+$primary-color: $color-main;
+$secondary-color: $color-background;
+$border-color: #dddddd;
+$btn-hover-color: darken($color-background, 10%);
+
+// Mixin for button styles
+@mixin button-style($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $btn-hover-color;
+  }
+
+  i {
+    margin-right: 8px;
+  }
+}
+
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.login-container {
+  background-color: $secondary-color;
+  padding: 40px;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 20px;
+    color: $primary-color;
+  }
+
+  form {
+    .form-group {
+      text-align: left;
+      margin-bottom: 15px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333333;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        box-sizing: border-box;
+
+        &:focus {
+          border-color: $primary-color;
+          outline: none;
+        }
+      }
+    }
+
+    .btn {
+      @include button-style($primary-color, $secondary-color);
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  .divider {
+    margin: 20px 0;
+    position: relative;
+    text-align: center;
+    color: #888888;
+
+    span {
+      background-color: $secondary-color;
+      padding: 0 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $border-color;
+      z-index: 0;
+    }
+  }
+
+  .social-login {
+    display: flex;
+    flex-direction: column;
+
+    .btn-social {
+      @include button-style($border-color, #333333);
+      border: 1px solid $border-color;
+      background-color: $secondary-color;
+      color: #333333;
+
+      &:hover {
+        background-color: #eaeaea;
+      }
+
+      i {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .additional-links {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555555;
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px;
+  }
+
+  .btn, .btn-social {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}

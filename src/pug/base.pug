@@ -1,0 +1,66 @@
+doctype html
+html(lang="en")
+
+  block main_vars
+    - var css_main = ["css/style.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" ]
+    - var js_main = ["https://code.jquery.com/jquery-3.6.4.min.js", "js/burger.js"]
+
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width")
+    title MagicDB
+    meta(property="og:title", content="MagicDB")
+    meta(property="og:description", content="AI driven database search")
+    meta(property="og:image", content="https://data-science.me/static/images/logo.svg")
+    meta(property="og:url", content="https://data-science.me")
+    meta(property="og:type", content="website")
+
+    each css in css_main || []
+      link(rel="stylesheet", href=css)
+
+  body
+    .wrapper
+      header.header
+        .container
+          .header__body
+            a.header__logo(href="about.html")
+              //- logo src defined in logo.js
+              img#logo(src="images/logo.svg", alt="Logo")
+            .header__burger
+              span.span1
+              span.span2
+              span.span3
+            nav.header__menu
+              ul.header__list
+                li: a.header__link(href="about.html") About
+                li: a.header__link(href="products.html") Products
+                li: a.header__link(href="jobs.html") Jobs
+                li: a.header__link(href="login.html") Sign In
+                //- li
+                  //- a.header__link(href="example.html") Dropdown example
+                  //- ul.projects__list
+                    //- li: a.header__link(href="example.html") example
+                    //- li: a.header__link(href="example.html") example                
+              .header__social_mobile
+                a(href="https://linkedin.com" target="_blank")
+                  i.fab.fa-linkedin
+                a(href="https://github.com" target="_blank")
+                  i.fab.fa-github
+            .header__social
+              a(href="https://linkedin.com/in/dmytro-yelchaninov" target="_blank")
+                i.fab.fa-linkedin
+              a(href="https://github.com/dmytroyelchaninov" target="_blank")
+                i.fab.fa-github
+      .content
+        .container
+          main 
+            block content
+
+    each js in js_main || []
+      script(src=js)
+
+    footer.footer
+      .footer__body
+        .footer__text
+          p &copy; 2024 Yelchaninov
+          

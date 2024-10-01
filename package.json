@@ -1,0 +1,16 @@
+{
+    "name": "beverages",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+      "start": "npm run gulp",
+      "gulp": "gulp"
+    },
+    "devDependencies": {
+      "browser-sync": "^3.0.2",
+      "gulp": "^5.0.0",
+      "gulp-pug": "^5.0.0",
+      "gulp-sass": "^5.1.0",
+      "sass": "^1.77.8"
+    }
+  }
