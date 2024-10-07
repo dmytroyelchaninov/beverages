@@ -36,4 +36,31 @@ def delete_product(product):
 def get_paginated_products(page, per_page, filters):
     query = Product.query
 
-    if 'category_id'
+    if 'category_id' in filters:
+        query = query.filter_by(category_id=filters['category_id'])
+
+    if 'subcategory_id' in filters:
+        query = query.filter_by(subcategory_id=filters['subcategory_id'])
+
+    if 'min_price' in filters:
+        query = query.filter(Product.price.between(filters['min_price'], filters['max_price']))
+    
+    paginated_products = query.paginate(page=page, per_page=per_page, error_out=False)
+    products_list = []
+    for product in paginated_products.items:
+        product_data = {
+            'id': product.id,
+            'name': product.name,
+            'price': product.price,
+            'stock': product.stock,
+            'description': product.description,
+            'tags': [tag.name for tag in product.tags]
+        }
+        products_list.append(product_data)
+    
+    return {
+        'products': products_list,
+        'total_items': paginated_products.total,
+        'total_pages': paginated_products.pages,
+        'current_page': paginated_products.page
+    }

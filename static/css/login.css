@@ -1,11 +1,28 @@
-.login-wrapper {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.wrapper.blurred {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
 }
 
-.login-container {
+.login-wrapper, .register-wrapper {
+  padding-top: 50px;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  opacity: 0;
+  transition: opacity 5s ease;
+}
+
+.login-wrapper.active, .register-wrapper.active {
+  display: flex;
+  opacity: 1;
+  z-index: 1000;
+  transition: opacity 5s ease;
+}
+
+.login-container, .register-container {
   background-color: #f4f4f4;
   padding: 40px;
   border: 1px solid #dddddd;
@@ -16,32 +33,32 @@
   box-sizing: border-box;
   text-align: center;
 }
-.login-container h1 {
+.login-container h1, .register-container h1 {
   margin-bottom: 20px;
   color: #000;
 }
-.login-container form .form-group {
+.login-container form .form-group, .register-container form .form-group {
   text-align: left;
   margin-bottom: 15px;
 }
-.login-container form .form-group label {
+.login-container form .form-group label, .register-container form .form-group label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
   color: #333333;
 }
-.login-container form .form-group input {
+.login-container form .form-group input, .register-container form .form-group input {
   width: 100%;
   padding: 10px;
   border: 1px solid #dddddd;
   border-radius: 4px;
   box-sizing: border-box;
 }
-.login-container form .form-group input:focus {
+.login-container form .form-group input:focus, .register-container form .form-group input:focus {
   border-color: #000;
   outline: none;
 }
-.login-container form .btn {
+.login-container form .btn, .register-container form .btn {
   background-color: #000;
   color: #f4f4f4;
   border: none;
@@ -57,25 +74,25 @@
   width: 100%;
   margin-top: 10px;
 }
-.login-container form .btn:hover {
-  background-color: rgb(218.5, 218.5, 218.5);
+.login-container form .btn:hover, .register-container form .btn:hover {
+  background-color: rgb(65.5, 65.5, 65.5);
 }
-.login-container form .btn i {
+.login-container form .btn i, .register-container form .btn i {
   margin-right: 8px;
 }
-.login-container .divider {
+.login-container .divider, .register-container .divider {
   margin: 20px 0;
   position: relative;
   text-align: center;
   color: #888888;
 }
-.login-container .divider span {
+.login-container .divider span, .register-container .divider span {
   background-color: #f4f4f4;
   padding: 0 10px;
   position: relative;
   z-index: 1;
 }
-.login-container .divider:before {
+.login-container .divider:before, .register-container .divider:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -85,11 +102,11 @@
   background-color: #dddddd;
   z-index: 0;
 }
-.login-container .social-login {
+.login-container .social-login, .register-container .social-login {
   display: flex;
   flex-direction: column;
 }
-.login-container .social-login .btn-social {
+.login-container .social-login .btn-social, .register-container .social-login .btn-social {
   background-color: #dddddd;
   color: #333333;
   border: none;
@@ -106,31 +123,36 @@
   background-color: #f4f4f4;
   color: #333333;
 }
-.login-container .social-login .btn-social:hover {
-  background-color: rgb(218.5, 218.5, 218.5);
+.login-container .social-login .btn-social:hover, .register-container .social-login .btn-social:hover {
+  background-color: rgb(65.5, 65.5, 65.5);
 }
-.login-container .social-login .btn-social i {
+.login-container .social-login .btn-social i, .register-container .social-login .btn-social i {
   margin-right: 8px;
 }
-.login-container .social-login .btn-social:hover {
+.login-container .social-login .btn-social:hover, .register-container .social-login .btn-social:hover {
   background-color: #eaeaea;
 }
-.login-container .social-login .btn-social i {
+.login-container .social-login .btn-social i, .register-container .social-login .btn-social i {
   font-size: 18px;
 }
-.login-container .additional-links {
-  margin-top: 20px;
-  font-size: 14px;
+.login-container .additional-links, .register-container .additional-links {
+  margin-top: 40px;
+  font-size: 16px;
   color: #555555;
 }
-.login-container .additional-links a {
+.login-container .additional-links a, .register-container .additional-links a {
   color: #000;
   text-decoration: none;
 }
-.login-container .additional-links a:hover {
+.login-container .additional-links a:hover, .register-container .additional-links a:hover {
   text-decoration: underline;
 }
 
+@media screen and (max-width: 768px) {
+  .login-wrapper, .register-wrapper {
+    padding-top: 35px;
+  }
+}
 @media (max-width: 480px) {
   .login-container {
     padding: 20px;

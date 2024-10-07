@@ -1,5 +1,5 @@
 from backend import db
-from backend.models.user import User  # Import User for the ForeignKey
+from backend.models.user import User
 
 class Invoice(db.Model):
     __tablename__ = 'invoices'

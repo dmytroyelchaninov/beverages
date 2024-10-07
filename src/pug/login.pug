@@ -2,27 +2,60 @@ extends base.pug
 
 append main_vars
   - css_main.push("css/login.css")
-  //- js_main.push("js/login.js")
+  - js_main.push("js/login.js")
 
 block content
   .login-wrapper
     .login-container
       h1 Sign In
-      form(action="/login", method="POST")
+
+      p#pleaseConfirm(style="color: red; display: None;") Please confirm your email.
+      p#invalidCredentials(style="color: red; display: None;") Invalid email or password.
+      p#errorGeneral(style="color: red; display: None;") Something went wrong.
+      
+      form#loginForm
         .form-group
           label(for="email") Email:
           input#email(type="email", name="email", required, placeholder="Enter your email")
         .form-group
           label(for="password") Password:
           input#password(type="password", name="password", required, placeholder="Enter your password")
-        button.btn(type="submit") Login
+        button.btn#login(type="submit") Login
+
       .divider
         span Or login with
+
       .social-login
         a.btn-social(href="/auth/google")
           i.fa-brands.fa-google
           |  Google
+
       .additional-links
-        a(href="/register") Sign Up
+        a#toggleToRegister(href="#") Sign Up
+        br
+        a(href="/forgot-password") Forgot Password?
+
+  .register-wrapper(style="display: none;")
+    .register-container
+      h1 Sign Up
+      form#registerForm
+        .form-group
+          label(for="name") Name:
+          input#name(type="text", name="name", required, placeholder="Enter your name")
+        .form-group
+          label(for="email") Email:
+          input#email(type="email", name="email", required, placeholder="Enter your email")
+        .form-group
+          label(for="password") Password:
+          input#password(type="password", name="password", required, placeholder="Enter your password")
+        .form-group
+          label(for="phone_number") Phone Number:
+          input#phone_number(type="text", name="phone_number", required, placeholder="Enter your phone number")
+        button.btn#signUp(type="submit") Sign Up
+
+      .divider
+
+      .additional-links
+        a#toggleToLogin(href="#") Sign In
         br
         a(href="/forgot-password") Forgot Password?

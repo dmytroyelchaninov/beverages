@@ -17,6 +17,10 @@ body.fade-out {
   background-color: #f4f4f4;
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 .container {
   max-width: 1180px;
   margin: 0 auto;
@@ -114,71 +118,39 @@ body.fade-out {
   color: #909090;
 }
 
-/* Ensure the parent li is positioned relatively */
 li {
-  position: relative; /* The submenu will now be positioned relative to this li */
+  position: relative;
 }
 
-.projects__list {
-  display: none;
-  position: absolute;
-  top: 100%; /* Place right below the hovered menu */
-  left: 0;
-  background-color: #f4f4f4;
-  padding-top: 10px;
-  list-style-type: none;
-  margin: 0;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 4px;
-  border: 2px solid rgb(169.5, 169.5, 169.5);
-  border-radius: 5px;
-  z-index: 1000;
+.header__login a, .header__login_mobile a {
+  color: #1c1c1c;
+  font-size: 45px;
+  transition: color 0.3s ease;
 }
 
-.projects__list li {
-  margin: 0;
-  margin-bottom: 7px;
-  padding: 0;
-  white-space: nowrap;
-}
-
-/* Show the submenu when hovering over the parent li */
-li:hover .projects__list {
-  display: flex;
-  flex-direction: column;
-}
-
-.header__social {
+.header__login {
   display: flex;
   gap: 15px;
   z-index: 3;
   position: relative;
   right: 2%;
 }
-.header__social a {
-  color: #0e76a8;
-  font-size: 32px;
-  transition: color 0.3s ease;
-}
-.header__social a:hover {
-  filter: brightness(1.1);
-}
-.header__social a:nth-child(2) {
-  color: #181717;
-}
-.header__social a:nth-child(2):hover {
-  filter: brightness(4);
+.header__login:hover {
+  filter: brightness(3);
 }
 
-.header__social_mobile {
+.header__login_mobile {
   display: none;
+  justify-content: center;
+  position: relative;
+  top: 15%;
+  gap: 15px;
+}
+.header__login_mobile a {
+  font-size: 55px;
 }
 
 @media screen and (max-width: 768px) {
-  body.lock {
-    overflow: hidden;
-  }
   .header__body {
     height: 70px;
   }
@@ -263,26 +235,11 @@ li:hover .projects__list {
   .header__list li {
     margin: 0 0 30px 0;
   }
-  .header__social {
+  .header__login {
     display: none;
   }
-  .header__social_mobile {
+  .header__login_mobile {
     display: flex;
-    justify-content: center;
-    position: relative;
-    top: 15%;
-    gap: 15px;
-  }
-  .header__social_mobile a {
-    color: #0e76a8;
-    font-size: 40px;
-    transition: color 0.3s ease;
-  }
-  .header__social_mobile a:nth-child(2) {
-    color: #000;
-  }
-  li:hover .projects__list {
-    display: none;
   }
 }
 .content {

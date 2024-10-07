@@ -17,14 +17,6 @@ $span1: #000;
 $span2: #000;
 $span3: #000;
 
-
-
-// $span1: #BF00FF;
-// $span2: #FF4545;
-// $span3: #FFFF00;
-
-// $color4: #CC3838;
-
 $font-stack: 'Avenir', sans-serif;
 $font-stack-res: 'Didot', sans-serif;
 $font-size-base: 16px;
@@ -54,6 +46,10 @@ body.fade-out {
     transition: opacity 0.3s ease-in;
     background-color: $color-background;
 }
+body.lock {
+    overflow: hidden;
+}
+
 .wrapper {}
 
 .container {
@@ -152,76 +148,44 @@ body.fade-out {
 .header__link:hover{
     color: $color-hover;
 }
-/* Ensure the parent li is positioned relatively */
+
 li {
-    position: relative; /* The submenu will now be positioned relative to this li */
+    position: relative;
 }
 
-.projects__list {  
-    display: none;
-    position: absolute;
-    top: 100%; /* Place right below the hovered menu */
-    left: 0;
-    background-color: $color-background;
-    padding-top: 10px;
-    list-style-type: none;
-    margin: 0;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 4px;
-    border: 2px solid lighten($color-header, 10%);
-    border-radius: 5px;
-    z-index: 1000;
+.header__login, .header__login_mobile {
+    a {
+        color: #1c1c1c;
+        font-size: 45px;
+        transition: color 0.3s ease;
+    }
 }
 
-.projects__list li {
-    margin: 0;
-    margin-bottom: 7px;
-    padding: 0;
-    // flex-wrap: nowrap;
-    white-space: nowrap;
-}
-
-/* Show the submenu when hovering over the parent li */
-li:hover .projects__list {
-    display: flex;
-    flex-direction: column;
-}
-
-.header__social {
+.header__login {
     display: flex;
     gap: 15px;
     z-index: 3;
     position: relative;
     right: 2%;
-    a {
-        color: #0e76a8;  // LinkedIn blue color
-        font-size: $font-size-20;
-        transition: color 0.3s ease;
-
-        &:hover {
-            filter: brightness(1.1);
-            // color: $color-hover;
-        }
-
-        &:nth-child(2) {
-            color: #181717;
-        }
-
-        &:nth-child(2):hover {
-            filter: brightness(4);
-            // color: $color-hover;
-        }
+    &:hover {
+        filter: brightness(3);
     }
-    }
-.header__social_mobile {
+}
+
+.header__login_mobile {
     display: none;
+    justify-content: center;
+    position: relative;
+    top: 15%;
+    gap: 15px;
+    a {
+        font-size: 55px;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
-    body.lock {
-        overflow: hidden;
-    }
+
     .header__body {
         height: $header-height-sm;
     }
@@ -306,26 +270,11 @@ li:hover .projects__list {
             margin: 0 0 30px 0;
         }
     }
-    .header__social {
+    .header__login {
         display: none;
     }
-    .header__social_mobile {
+    .header__login_mobile {
         display: flex;
-        justify-content: center;
-        position: relative;
-        top: 15%;
-        gap: 15px;
-        a {
-            color: #0e76a8;
-            font-size: $font-size-25;
-            transition: color 0.3s ease;
-            &:nth-child(2) {
-                color: $color-main;
-            }
-        }
-    }
-    li:hover .projects__list {
-        display: none;
     }
     
 }

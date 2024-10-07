@@ -2,8 +2,8 @@ doctype html
 html(lang="en")
 
   block main_vars
-    - var css_main = ["css/style.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" ]
-    - var js_main = ["https://code.jquery.com/jquery-3.6.4.min.js", "js/burger.js"]
+    - var css_main = ["css/style.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css", "css/login.css" ]
+    - var js_main = ["https://code.jquery.com/jquery-3.6.4.min.js", "js/burger.js", "js/login.js"]
 
   head
     meta(charset="UTF-8")
@@ -19,6 +19,58 @@ html(lang="en")
       link(rel="stylesheet", href=css)
 
   body
+    .login-wrapper
+      .login-container
+        h1 Sign In
+
+        p#pleaseConfirm(style="color: red; display: None;") Please confirm your email.
+        p#invalidCredentials(style="color: red; display: None;") Invalid email or password.
+        p#errorGeneral(style="color: red; display: None;") Something went wrong.
+        
+        form#loginForm
+          .form-group
+            label(for="email") Email:
+            input#email(type="email", name="email", required, placeholder="Enter your email")
+          .form-group
+            label(for="password") Password:
+            input#password(type="password", name="password", required, placeholder="Enter your password")
+          button.btn#login(type="submit") Login
+
+        .divider
+          span Or login with
+
+        .social-login
+          a.btn-social(href="/auth/google")
+            i.fa-brands.fa-google
+            |  Google
+
+        .additional-links
+          a#toggleToRegister(href="#") Sign Up
+          br
+          a(href="/forgot-password") Forgot Password?
+
+    .register-wrapper
+      .register-container
+        h1 Sign Up
+        form#registerForm
+          .form-group
+            label(for="name") Name:
+            input#name(type="text", name="name", required, placeholder="Enter your name")
+          .form-group
+            label(for="email") Email:
+            input#email(type="email", name="email", required, placeholder="Enter your email")
+          .form-group
+            label(for="password") Password:
+            input#password(type="password", name="password", required, placeholder="Enter your password")
+          .form-group
+            label(for="phone_number") Phone Number:
+            input#phone_number(type="text", name="phone_number", required, placeholder="Enter your phone number")
+          button.btn#signUp(type="submit") Sign Up
+        .divider
+        .additional-links
+          a#toggleToLogin(href="#") Sign In
+          br
+          a(href="/forgot-password") Forgot Password?
     .wrapper
       header.header
         .container
@@ -34,23 +86,14 @@ html(lang="en")
               ul.header__list
                 li: a.header__link(href="about.html") About
                 li: a.header__link(href="products.html") Products
-                li: a.header__link(href="jobs.html") Jobs
-                li: a.header__link(href="login.html") Sign In
-                //- li
-                  //- a.header__link(href="example.html") Dropdown example
-                  //- ul.projects__list
-                    //- li: a.header__link(href="example.html") example
-                    //- li: a.header__link(href="example.html") example                
-              .header__social_mobile
-                a(href="https://linkedin.com" target="_blank")
-                  i.fab.fa-linkedin
-                a(href="https://github.com" target="_blank")
-                  i.fab.fa-github
-            .header__social
-              a(href="https://linkedin.com/in/dmytro-yelchaninov" target="_blank")
-                i.fab.fa-linkedin
-              a(href="https://github.com/dmytroyelchaninov" target="_blank")
-                i.fab.fa-github
+                li: a.header__link(href="contact.html") Contact Us
+                //- li: a.header__link(href="login.html") Sign In
+              .header__login_mobile
+                a#loginButtonMobile
+                  i.far.fa-user-circle
+            .header__login
+                a#loginButton
+                  i.far.fa-user-circle
       .content
         .container
           main 

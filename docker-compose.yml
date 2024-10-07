@@ -1,16 +1,43 @@
 version: '3'
 services:
-  postgres:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - flask
+    networks:
+      - app-network
+
+  flask:
+    build:
+      context: ./flask
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
     image: postgres:latest
     environment:
       POSTGRES_DB: db_main
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: password
-    ports:
-      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - app-network
 
-volumes:
-  postgres_data:
+networks:
+  app-network:
+    driver: bridge

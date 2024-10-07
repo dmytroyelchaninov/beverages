@@ -1,0 +1,7 @@
+extends base.pug
+
+append main_vars
+  - css_main.push.apply(css_main, ["css/contact.css"])
+  - js_main.push.apply(js_main, ["js/contact_form.js"])
+  
+block content
